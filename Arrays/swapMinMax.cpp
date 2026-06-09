@@ -15,6 +15,7 @@ void swapMinMax(int arr[], int n){
    int temp = arr[minIndex];
    arr[minIndex] = arr[maxIndex];
    arr[maxIndex] = temp;
+   //swap(arr[minIndex],arr[maxIndex]);
 }
 
 int main(){
