@@ -1,18 +1,31 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
-void reverseVector(vector<int>&vec){
-    int n=vec.size();
-    for(int i = n-1;i>=0;i--){
-        cout<<vec[i]<<" ";
+void reverseVec(vector<int>&vec){
+    int start = 0;
+    int end = vec.size() - 1;
+
+    while(start<end){
+        swap(vec[start],vec[end]);
+        start++;
+        end--;
     }
+
 }
+
 int main(){
+
     int n;
     cin>>n;
+
     vector<int>vec(n);
-    for(int i = 0;i<n;i++){
+    for(int i=0;i<n;i++){
         cin>>vec[i];
     }
-    reverseVector(vec);
+
+    reverseVec(vec);
+
+    for(int i=0;i<n;i++){
+        cout<<vec[i]<<" ";
+    }
+    return 0;
 }
