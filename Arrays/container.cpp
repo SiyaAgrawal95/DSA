@@ -1,32 +1,61 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int maxArea(vector<int>& height) {
+//     int maxWater = 0;
+
+//     for (int i = 0; i < height.size(); i++) {
+//         for (int j = i + 1; j < height.size(); j++) {
+//             int w = j - i;
+//             int ht = min(height[i], height[j]);
+//             int currWater = w * ht;
+
+//             maxWater = max(maxWater, currWater);
+//         }
+//     }
+
+//     return maxWater;
+// }
+
+// int main() {
+//     int n;
+//     cin >> n;
+
+//     vector<int> height(n);
+//     for (int i = 0; i < n; i++) {
+//         cin >> height[i];
+//     }
+
+//     cout << maxArea(height);
+
+//     return 0;
+// }
+
+#include<bits/stdc++.h>
 using namespace std;
 
-int maxArea(vector<int>& height) {
-    int maxWater = 0;
+    int maxArea(vector<int> height) {
+        int maxWater = 0;
+        int lp =0, rp = height.size()-1;
 
-    for (int i = 0; i < height.size(); i++) {
-        for (int j = i + 1; j < height.size(); j++) {
-            int w = j - i;
-            int ht = min(height[i], height[j]);
-            int currWater = w * ht;
+        while(lp<rp){
+            int w = rp-lp;
+            int ht = min(height[rp],height[lp]);
+            int currWater = w*ht;
+            maxWater = max(maxWater,currWater);
 
-            maxWater = max(maxWater, currWater);
+            height[lp]<height[rp] ? lp++ : rp--;
         }
+        return maxWater;
     }
-
-    return maxWater;
-}
-
-int main() {
+int main(){
     int n;
-    cin >> n;
-
-    vector<int> height(n);
-    for (int i = 0; i < n; i++) {
-        cin >> height[i];
+    cin>>n;
+    vector<int>height(n);
+    for(int i=0;i<n;i++){
+        cin>>height[i];
     }
 
-    cout << maxArea(height);
-
+    cout<<maxArea;
     return 0;
 }
