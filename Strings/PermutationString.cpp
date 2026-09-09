@@ -55,3 +55,55 @@ int main() {
 
     return 0;
 }
+
+// class Solution {
+// public:
+//     bool checkInclusion(string s1, string s2) {
+        
+//         vector<int>v(26,0);
+
+//         for(int i=0 ; i<s1.size() ; i++)
+//         {
+//             int idx = s1[i]-'a';
+//             v[idx]++;
+//         }
+
+//         int start = 0;
+//         int end = 0;
+//         int curr = 0;
+
+//         while(end < s2.size())
+//         {
+//             int index = s2[end] - 'a';
+
+//             if(v[index] == 0)
+//             {
+//                 while(v[index] == 0 && start < end)
+//                 {
+//                     v[s2[start]-'a']++;
+//                     start++;
+//                     curr--;
+//                 }
+
+//                 if(v[index] == 0)
+//                 {
+//                     start++;
+//                     end++;
+//                 }
+//             }
+
+//             else
+//             {
+//                 v[index]--;
+//                 curr++;
+//                 end++;
+
+//                 if(curr == s1.size())
+//                 return true;
+//             }
+//         }
+
+//         return false;
+
+//     }
+// };
