@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    if (n < 3) {
+        cout << 0;
+        return 0;
+    }
+
+    vector<char> isPrime(n, 1);
+    int count = 1;
+
+    for (int i = 3; i < n; i += 2) {
+        if (isPrime[i]) {
+            count++;
+
+            if ((long long)i * i < n) {
+                for (int j = i * i; j < n; j += 2 * i) {
+                    isPrime[j] = 0;
+                }
+            }
+        }
+    }
+
+    cout << count;
+
+    return 0;
+}
